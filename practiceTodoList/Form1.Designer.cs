@@ -38,6 +38,7 @@
             chkCompleted = new CheckBox();
             txtNotes = new TextBox();
             btnAdd = new Button();
+            btnDelete = new Button();
             SuspendLayout();
             // 
             // todoListView
@@ -107,20 +108,32 @@
             // btnAdd
             // 
             btnAdd.BackColor = SystemColors.Highlight;
-            btnAdd.Font = new Font("Yu Gothic UI", 22.2F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btnAdd.Location = new Point(425, 601);
+            btnAdd.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            btnAdd.Location = new Point(308, 601);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(591, 69);
+            btnAdd.Size = new Size(675, 30);
             btnAdd.TabIndex = 5;
             btnAdd.Text = "追加";
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = SystemColors.ActiveBorder;
+            btnDelete.Location = new Point(983, 601);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(170, 30);
+            btnDelete.TabIndex = 6;
+            btnDelete.Text = "削除";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1439, 727);
+            Controls.Add(btnDelete);
             Controls.Add(todoListView);
             Controls.Add(btnAdd);
             Controls.Add(txtNotes);
@@ -146,5 +159,6 @@
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
+        private Button btnDelete;
     }
 }

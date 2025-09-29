@@ -1,51 +1,51 @@
-namespace practiceTodoList
+ï»¿namespace practiceTodoList
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
-            InitializeComponent();      //ƒtƒH[ƒ€‚ÌUI‚ğ‰Šú‰»
-            this.Load += Form1_Load;    //ƒtƒH[ƒ€‚ª•\¦‚³‚ê‚é’¼‘O‚ÉForm1_Load‚ğŒÄ‚Ño‚·
+            InitializeComponent();      //ãƒ•ã‚©ãƒ¼ãƒ ã®UIã‚’åˆæœŸåŒ–
+            this.Load += Form1_Load;    //ãƒ•ã‚©ãƒ¼ãƒ ãŒè¡¨ç¤ºã•ã‚Œã‚‹ç›´å‰ã«Form1_Loadã‚’å‘¼ã³å‡ºã™
         }
         private void SetupListViewColumns()
         {
             todoListView.Columns.Clear();
 
-            todoListView.Columns.Add("ƒ^ƒCƒgƒ‹", 200);
-            todoListView.Columns.Add("ŠúŒÀ",180);
-            todoListView.Columns.Add("Š®—¹", 60);
-            todoListView.Columns.Add("ƒƒ‚", 400);
+            todoListView.Columns.Add("ã‚¿ã‚¤ãƒˆãƒ«", 200);
+            todoListView.Columns.Add("æœŸé™", 180);
+            todoListView.Columns.Add("å®Œäº†", 60);
+            todoListView.Columns.Add("ãƒ¡ãƒ¢", 400);
         }
         private void Form1_Load(object? sender, EventArgs e)
         {
-            // ListView‚Ì—ñ‚ğ’Ç‰Á
+            // ListViewã®åˆ—ã‚’è¿½åŠ 
             SetupListViewColumns();
 
-            //JSON‚©‚çToDo‚ğ“Ç‚İ‚ñ‚Å•\¦
+            //JSONã‹ã‚‰ToDoã‚’èª­ã¿è¾¼ã‚“ã§è¡¨ç¤º
             var manager = new TodoManager();
-            var todos = manager.LoadTodos();
-            DisplayTodos(todos);
+            this.todos = manager.LoadTodos();
+            DisplayTodos(this.todos);
         }
         private void DisplayTodos(List<TodoItem> list)
         {
-            todoListView.Items.Clear();     //•\¦‚ğ‰Šú‰»
+            todoListView.Items.Clear();     //è¡¨ç¤ºã‚’åˆæœŸåŒ–
 
             foreach (var todo in list)
             {
-                var item = new ListViewItem(todo.Title);                //ƒ^ƒCƒgƒ‹(Å‰‚Ì—ñ)
-                item.SubItems.Add(todo.DueDate.ToShortDateString());    //ŠúŒÀ
-                item.SubItems.Add(todo.IsCompleted ? "?" : "");        //Š®—¹ó‘Ô
-                item.SubItems.Add(todo.Notes);                          //ƒƒ‚
+                var item = new ListViewItem(todo.Title);                //ã‚¿ã‚¤ãƒˆãƒ«(æœ€åˆã®åˆ—)
+                item.SubItems.Add(todo.DueDate.ToShortDateString());    //æœŸé™
+                item.SubItems.Add(todo.IsCompleted ? "âœ“" : "");        //å®Œäº†çŠ¶æ…‹
+                item.SubItems.Add(todo.Notes);                          //ãƒ¡ãƒ¢
 
-                todoListView.Items.Add(item);   //ListView‚É’Ç‰Á
+                todoListView.Items.Add(item);   //ListViewã«è¿½åŠ 
             }
         }
-        private List<TodoItem> todos = new();   //ƒtƒH[ƒ€‘S‘Ì‚Å•Û‚·‚éToDoƒŠƒXƒg(‘O‰ñ‚ÌƒŠƒXƒg‚àŠÜ‚ß‚Ä‚Æ‚¢‚¤ˆÓ–¡‚ÅƒtƒH[ƒ€‘S‘Ì)
+        private List<TodoItem> todos = new();   //ãƒ•ã‚©ãƒ¼ãƒ å…¨ä½“ã§ä¿æŒã™ã‚‹ToDoãƒªã‚¹ãƒˆ(å‰å›ã®ãƒªã‚¹ãƒˆã‚‚å«ã‚ã¦ã¨ã„ã†æ„å‘³ã§ãƒ•ã‚©ãƒ¼ãƒ å…¨ä½“)
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
             {
-                MessageBox.Show("ƒ^ƒCƒgƒ‹‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B", "“ü—ÍƒGƒ‰[", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ã‚¿ã‚¤ãƒˆãƒ«ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚", "å…¥åŠ›ã‚¨ãƒ©ãƒ¼", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             var newTodo = new TodoItem()
@@ -56,12 +56,12 @@ namespace practiceTodoList
                 Notes = txtNotes.Text,
             };
 
-            todos.Add(newTodo);     //todosƒŠƒXƒg‚ÉnewTodo‚ğ’Ç‰Á
+            todos.Add(newTodo);     //todosãƒªã‚¹ãƒˆã«newTodoã‚’è¿½åŠ 
 
             var manager = new TodoManager();
-            manager.SaveTodos(todos);       //JSON‚É•Û‘¶
+            manager.SaveTodos(todos);       //JSONã«ä¿å­˜
 
-            DisplayTodos(todos);        //ListView‚ÉÄ•\¦
+            DisplayTodos(todos);        //ListViewã«å†è¡¨ç¤º
             ClearInputFields();
         }
         private void ClearInputFields()
@@ -70,6 +70,21 @@ namespace practiceTodoList
             dtpDueDate.Value = DateTime.Today;
             chkCompleted.Checked = false;
             txtNotes.Text = "";
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (todoListView.SelectedIndices.Count == 0)
+            {
+                MessageBox.Show("å‰Šé™¤ã™ã‚‹ã‚¿ã‚¹ã‚¯ã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚","æ“ä½œã‚¨ãƒ©ãƒ¼",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            int index = todoListView.SelectedIndices[0];    //é¸æŠã•ã‚ŒãŸè¡Œã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+            todos.RemoveAt(index);                          //ãƒªã‚¹ãƒˆã‹ã‚‰å‰Šé™¤
+            var manager = new TodoManager();
+            manager.SaveTodos(todos);        //JSONã«å…¨ã¦ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ä¿å­˜
+
+            DisplayTodos(todos);    //ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤æ›´æ–°
         }
     }
 }

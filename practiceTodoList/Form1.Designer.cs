@@ -28,49 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            todoListView = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
             txtTitle = new TextBox();
             dtpDueDate = new DateTimePicker();
             chkCompleted = new CheckBox();
             txtNotes = new TextBox();
             btnAdd = new Button();
             btnDelete = new Button();
+            todoGridView = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)todoGridView).BeginInit();
             SuspendLayout();
-            // 
-            // todoListView
-            // 
-            todoListView.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
-            todoListView.FullRowSelect = true;
-            todoListView.GridLines = true;
-            todoListView.Location = new Point(308, 36);
-            todoListView.Name = "todoListView";
-            todoListView.Size = new Size(845, 528);
-            todoListView.TabIndex = 0;
-            todoListView.UseCompatibleStateImageBehavior = false;
-            todoListView.View = View.Details;
-            // 
-            // columnHeader1
-            // 
-            columnHeader1.Text = "タイトル";
-            columnHeader1.Width = 200;
-            // 
-            // columnHeader2
-            // 
-            columnHeader2.Text = "期限";
-            columnHeader2.Width = 180;
-            // 
-            // columnHeader3
-            // 
-            columnHeader3.Text = "完了";
-            // 
-            // columnHeader4
-            // 
-            columnHeader4.Text = "メモ";
-            columnHeader4.Width = 400;
             // 
             // txtTitle
             // 
@@ -128,37 +94,44 @@
             btnDelete.UseVisualStyleBackColor = false;
             btnDelete.Click += btnDelete_Click;
             // 
+            // todoGridView
+            // 
+            todoGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            todoGridView.Dock = DockStyle.Fill;
+            todoGridView.Location = new Point(0, 0);
+            todoGridView.Name = "todoGridView";
+            todoGridView.RowHeadersWidth = 51;
+            todoGridView.Size = new Size(1681, 793);
+            todoGridView.TabIndex = 7;
+            todoGridView.CellContentClick += todoGridView_CellContentClick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1439, 727);
+            ClientSize = new Size(1681, 793);
             Controls.Add(btnDelete);
-            Controls.Add(todoListView);
             Controls.Add(btnAdd);
             Controls.Add(txtNotes);
             Controls.Add(chkCompleted);
             Controls.Add(dtpDueDate);
             Controls.Add(txtTitle);
+            Controls.Add(todoGridView);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)todoGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private ListView todoListView;
         private TextBox txtTitle;
         private DateTimePicker dtpDueDate;
         private CheckBox chkCompleted;
         private TextBox txtNotes;
         private Button btnAdd;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
         private Button btnDelete;
+        private DataGridView todoGridView;
     }
 }

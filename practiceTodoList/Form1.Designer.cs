@@ -30,7 +30,6 @@
         {
             txtTitle = new TextBox();
             dtpDueDate = new DateTimePicker();
-            chkCompleted = new CheckBox();
             txtNotes = new TextBox();
             btnAdd = new Button();
             btnDelete = new Button();
@@ -40,44 +39,33 @@
             // 
             // txtTitle
             // 
-            txtTitle.Location = new Point(308, 568);
+            txtTitle.Location = new Point(298, 366);
             txtTitle.Name = "txtTitle";
-            txtTitle.Size = new Size(200, 27);
+            txtTitle.Size = new Size(300, 27);
             txtTitle.TabIndex = 1;
             // 
             // dtpDueDate
             // 
-            dtpDueDate.Location = new Point(514, 568);
+            dtpDueDate.Location = new Point(92, 366);
             dtpDueDate.Name = "dtpDueDate";
-            dtpDueDate.Size = new Size(166, 27);
+            dtpDueDate.Size = new Size(200, 27);
             dtpDueDate.TabIndex = 2;
-            // 
-            // chkCompleted
-            // 
-            chkCompleted.AutoSize = true;
-            chkCompleted.BackColor = SystemColors.ButtonHighlight;
-            chkCompleted.Location = new Point(686, 570);
-            chkCompleted.Name = "chkCompleted";
-            chkCompleted.Size = new Size(61, 24);
-            chkCompleted.TabIndex = 3;
-            chkCompleted.Text = "完了";
-            chkCompleted.UseVisualStyleBackColor = false;
             // 
             // txtNotes
             // 
-            txtNotes.Location = new Point(762, 568);
+            txtNotes.Location = new Point(604, 366);
             txtNotes.Multiline = true;
             txtNotes.Name = "txtNotes";
-            txtNotes.Size = new Size(391, 27);
+            txtNotes.Size = new Size(420, 27);
             txtNotes.TabIndex = 4;
             // 
             // btnAdd
             // 
             btnAdd.BackColor = SystemColors.Highlight;
             btnAdd.Font = new Font("Yu Gothic UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            btnAdd.Location = new Point(308, 601);
+            btnAdd.Location = new Point(124, 421);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(675, 30);
+            btnAdd.Size = new Size(671, 30);
             btnAdd.TabIndex = 5;
             btnAdd.Text = "追加";
             btnAdd.UseVisualStyleBackColor = false;
@@ -86,9 +74,9 @@
             // btnDelete
             // 
             btnDelete.BackColor = SystemColors.ActiveBorder;
-            btnDelete.Location = new Point(983, 601);
+            btnDelete.Location = new Point(801, 421);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(170, 30);
+            btnDelete.Size = new Size(166, 30);
             btnDelete.TabIndex = 6;
             btnDelete.Text = "削除";
             btnDelete.UseVisualStyleBackColor = false;
@@ -97,11 +85,10 @@
             // todoGridView
             // 
             todoGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            todoGridView.Dock = DockStyle.Fill;
-            todoGridView.Location = new Point(0, 0);
+            todoGridView.Location = new Point(28, 39);
             todoGridView.Name = "todoGridView";
             todoGridView.RowHeadersWidth = 51;
-            todoGridView.Size = new Size(1681, 793);
+            todoGridView.Size = new Size(1060, 277);
             todoGridView.TabIndex = 7;
             todoGridView.CellContentClick += todoGridView_CellContentClick;
             // 
@@ -109,16 +96,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1681, 793);
+            ClientSize = new Size(1116, 544);
             Controls.Add(btnDelete);
             Controls.Add(btnAdd);
             Controls.Add(txtNotes);
-            Controls.Add(chkCompleted);
             Controls.Add(dtpDueDate);
             Controls.Add(txtTitle);
             Controls.Add(todoGridView);
             Name = "Form1";
-            Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)todoGridView).EndInit();
             ResumeLayout(false);
@@ -128,7 +113,6 @@
         #endregion
         private TextBox txtTitle;
         private DateTimePicker dtpDueDate;
-        private CheckBox chkCompleted;
         private TextBox txtNotes;
         private Button btnAdd;
         private Button btnDelete;

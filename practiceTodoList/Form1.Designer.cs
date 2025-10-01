@@ -90,7 +90,7 @@
             todoGridView.RowHeadersWidth = 51;
             todoGridView.Size = new Size(1060, 277);
             todoGridView.TabIndex = 7;
-            todoGridView.CellContentClick += todoGridView_CellContentClick;
+            //todoGridView.CellContentClick += todoGridView_CellContentClick;
             // 
             // Form1
             // 

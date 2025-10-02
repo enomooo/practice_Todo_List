@@ -69,7 +69,6 @@
             btnAdd.TabIndex = 5;
             btnAdd.Text = "追加";
             btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
             // 
             // btnDelete
             // 
@@ -80,7 +79,6 @@
             btnDelete.TabIndex = 6;
             btnDelete.Text = "削除";
             btnDelete.UseVisualStyleBackColor = false;
-            btnDelete.Click += btnDelete_Click;
             // 
             // todoGridView
             // 
@@ -88,15 +86,14 @@
             todoGridView.Location = new Point(28, 39);
             todoGridView.Name = "todoGridView";
             todoGridView.RowHeadersWidth = 51;
-            todoGridView.Size = new Size(1060, 277);
+            todoGridView.Size = new Size(1050, 277);
             todoGridView.TabIndex = 7;
-            //todoGridView.CellContentClick += todoGridView_CellContentClick;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1116, 544);
+            ClientSize = new Size(1102, 534);
             Controls.Add(btnDelete);
             Controls.Add(btnAdd);
             Controls.Add(txtNotes);
@@ -104,7 +101,6 @@
             Controls.Add(txtTitle);
             Controls.Add(todoGridView);
             Name = "Form1";
-            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)todoGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
